@@ -32,6 +32,7 @@ interface TaskData {
   priority: string
   dependencies?: string[]
   estimatedHours?: number
+  requiredSkills?: string[]
 }
 
 // PerformanceMetrics type - define locally since not exported from service
