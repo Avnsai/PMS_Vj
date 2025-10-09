@@ -11,7 +11,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import { getApiUrlDynamic } from '../../utils/config'
 import { formatHours, formatHoursWithSuffix, formatSecondsToHours } from '../../utils/hourFormatter'
 import toast from 'react-hot-toast'
-import { Task as SharedTask } from '../../types'
+import { Task } from '../../types'
 
 // Import tab components
 import { TaskDetailsTab } from './TaskDetailsTab'
@@ -19,23 +19,6 @@ import { TimeTrackingTab } from './TimeTrackingTab'
 import { TaskCommentsTab } from './TaskCommentsTab'
 import { TaskActivityTab } from './TaskActivityTab'
 import { TaskDependenciesTab } from './TaskDependenciesTab'
-
-interface Task extends SharedTask {
-  dependencies: Array<{
-    task_id: string
-    dependency_type: string
-  }>
-  subtasks: string[]
-  tags: string[]
-  labels: string[]
-  custom_fields: Record<string, any>
-  progress_percentage: number
-  subtask_count: number
-  comment_count: number
-  attachment_count: number
-  created_at: string
-  updated_at: string
-}
 
 interface Comment {
   id: string
