@@ -69,7 +69,7 @@ export const TaskDependenciesTab: React.FC<TaskDependenciesTabProps> = ({
   const removeDependency = (taskId: string) => {
     const updatedDependencies = (task.dependencies || []).filter(dep => 
       typeof dep === 'string' ? dep !== taskId : dep.task_id !== taskId
-    )
+    ) as Array<{ task_id: string; dependency_type: string }>
     onUpdate(task.id, { dependencies: updatedDependencies })
   }
 
