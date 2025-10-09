@@ -100,7 +100,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToRegister }) => {
       
       if (result.success) {
         // Check if it's async (202 status) or completed
-        if (result.status === 'processing') {
+        if ((result as any).status === 'processing') {
           toast.success(
             `🎉 Demo data generation started!\n` +
             `⏳ This will take 10-30 seconds to complete.\n` +
