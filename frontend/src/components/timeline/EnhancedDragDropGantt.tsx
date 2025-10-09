@@ -399,7 +399,7 @@ export const EnhancedDragDropGantt: React.FC<EnhancedDragDropGanttProps> = ({
         }, 150);
       }
     }
-  }, [timelineMetrics, filteredTasks, onTaskDoubleClick]);
+  }, [timelineMetrics, filteredTasks]); // onTaskDoubleClick removed from dependencies
 
   const handleMouseMove = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
     if (!timelineMetrics || !canvasRef.current) return;
