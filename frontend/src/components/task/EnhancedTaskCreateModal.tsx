@@ -44,13 +44,6 @@ interface Project {
   name: string
 }
 
-interface Task {
-  id: string
-  title: string
-  status: string
-  priority: string
-}
-
 interface EnhancedTaskCreateModalProps {
   isOpen: boolean
   onClose: () => void
