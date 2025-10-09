@@ -30,6 +30,8 @@ interface SecurityMetrics {
     malware_detected: number;
     global_threat_level?: string;
     last_threat_detected?: string;
+    threats_blocked_today?: number;
+    suspicious_ips_detected?: number;
     indicators?: Array<{
       type: string;
       value: string;
@@ -47,6 +49,7 @@ interface SecurityMetrics {
     remediation_rate?: number;
     security_score?: number;
     remediation_status?: string;
+    vulnerabilities_found?: number;
   };
   security_trends?: {
     events_trend: string;
