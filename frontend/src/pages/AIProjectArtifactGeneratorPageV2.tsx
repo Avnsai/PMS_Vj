@@ -594,8 +594,27 @@ const AIProjectArtifactGeneratorPageV2: React.FC = () => {
     </div>
   )
 
-  // Render functions continue in the rest of the file...
-  // Due to message size limits, I'll add them in a second part
+  // Render functions
+  function renderGeneratorTab() {
+    return <div className="p-6 bg-white rounded-lg">Generator Tab - Implementation Pending</div>
+  }
+
+  function renderSamplesTab() {
+    return <div className="p-6 bg-white rounded-lg">Samples Tab - Implementation Pending</div>
+  }
+
+  function renderProjectsTab() {
+    return <div className="p-6 bg-white rounded-lg">Projects Tab - Implementation Pending</div>
+  }
+
+  function renderDocumentViewer() {
+    return <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white p-6 rounded-lg max-w-4xl max-h-[80vh] overflow-auto">
+        <h2 className="text-xl font-bold mb-4">{viewingDocument?.title || 'Document'}</h2>
+        <button onClick={() => setViewingDocument(null)} className="mt-4 px-4 py-2 bg-blue-600 text-white rounded">Close</button>
+      </div>
+    </div>
+  }
 }
 
 export default AIProjectArtifactGeneratorPageV2
