@@ -47,7 +47,24 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
+    sourcemap: false, // Disable source maps to save memory
+    minify: 'esbuild', // Use esbuild for faster, less memory-intensive minification
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split vendor chunks to reduce memory usage
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'chart-vendor': ['chart.js', 'react-chartjs-2'],
+          'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
+          'ui-vendor': ['lucide-react', '@heroicons/react', 'react-icons'],
+        },
+      },
+    },
+    // Optimize chunk size
+    cssCodeSplit: true,
+    // Reduce memory usage during build
+    reportCompressedSize: false,
   },
   define: {
     global: 'globalThis',
