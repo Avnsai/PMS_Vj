@@ -3,41 +3,7 @@ import {
   User, Users, Calendar, Clock, Target, AlertTriangle,
   Plus, Minus, Save, X
 } from 'lucide-react'
-
-interface Task {
-  id: string
-  title: string
-  description?: string
-  status: 'todo' | 'in_progress' | 'in_review' | 'blocked' | 'completed' | 'cancelled'
-  priority: 'low' | 'medium' | 'high' | 'critical'
-  type: 'task' | 'bug' | 'feature' | 'improvement' | 'research'
-  project_id: string
-  assignee_id?: string
-  assignee_ids?: string[]
-  reporter_id: string
-  parent_task_id?: string
-  due_date?: string
-  start_date?: string
-  completed_at?: string
-  time_tracking?: {
-    estimated_hours?: number
-    actual_hours: number
-  }
-  dependencies: Array<{
-    task_id: string
-    dependency_type: string
-  }>
-  subtasks: string[]
-  tags: string[]
-  labels: string[]
-  custom_fields: Record<string, any>
-  progress_percentage: number
-  subtask_count: number
-  comment_count: number
-  attachment_count: number
-  created_at: string
-  updated_at: string
-}
+import { Task } from '../../types'
 
 interface TaskDetailsTabProps {
   task: Task
