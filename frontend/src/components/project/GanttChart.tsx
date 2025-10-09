@@ -3,7 +3,7 @@ import {
   ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Calendar, 
   Settings, Download, Maximize2, GitBranch, Link2, Edit2, Trash2,
   Info, Clock, User, Flag, TrendingUp, AlertCircle, Save, X, Plus,
-  Move, Resize, Eye, EyeOff, Grid, List as ListIcon
+  Move, Eye, EyeOff, Grid, List as ListIcon
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
