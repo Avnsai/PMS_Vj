@@ -616,7 +616,7 @@ const SecurityDashboard: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-600">Trend</span>
                     <span className={`flex items-center space-x-1 ${
-                      metrics.security_trends.week_over_week_change.startsWith('+') ? 'text-red-600' : 'text-green-600'
+                      String(metrics.security_trends.week_over_week_change).startsWith('+') ? 'text-red-600' : 'text-green-600'
                     }`}>
                       <TrendingUp className="h-4 w-4" />
                       <span className="text-sm font-medium">{metrics.security_trends.week_over_week_change}</span>
