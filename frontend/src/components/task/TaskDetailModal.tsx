@@ -11,49 +11,7 @@ import { formatHours, formatHoursWithSuffix, formatHoursVariance } from '../../u
 import toast from 'react-hot-toast'
 import { TaskCommentsTab } from './TaskCommentsTab'
 import { TaskDependenciesTab } from './TaskDependenciesTab'
-
-interface Task {
-  id: string
-  title: string
-  description?: string
-  status: 'todo' | 'in_progress' | 'in_review' | 'blocked' | 'completed' | 'cancelled' | 'review'
-  priority: 'low' | 'medium' | 'high' | 'critical'
-  type: 'task' | 'bug' | 'feature' | 'improvement' | 'research'
-  project_id: string
-  assignee_id?: string
-  assignee_ids?: string[]
-  reporter_id: string
-  parent_task_id?: string
-  due_date?: string
-  start_date?: string
-  completed_at?: string
-  time_tracking: {
-    estimated_hours?: number
-    actual_hours: number
-    logged_time: Array<{
-      id: string
-      user_id: string
-      hours: number
-      description: string
-      date: string
-      created_at: string
-    }>
-  }
-  dependencies: Array<{
-    task_id: string
-    dependency_type: string
-  }>
-  subtasks: string[]
-  tags: string[]
-  labels: string[]
-  custom_fields: Record<string, any>
-  progress_percentage: number
-  subtask_count: number
-  comment_count: number
-  attachment_count: number
-  created_at: string
-  updated_at: string
-}
+import { Task } from '../../types'
 
 interface Comment {
   id: string
