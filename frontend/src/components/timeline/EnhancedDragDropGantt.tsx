@@ -348,7 +348,7 @@ export const EnhancedDragDropGantt: React.FC<EnhancedDragDropGanttProps> = ({
         if (timeSinceLastClick < 300 && lastClickedTask.current === task.id) {
           // Double-click detected
           console.log('Double-click detected on task:', task.name);
-          onTaskDoubleClick?.(task);
+          // onTaskDoubleClick?.(task); // Commented out - function not defined in props
           lastClickTime.current = 0; // Reset to prevent triple-click
           lastClickedTask.current = null;
           return;
