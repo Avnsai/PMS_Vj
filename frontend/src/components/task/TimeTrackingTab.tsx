@@ -1,23 +1,7 @@
 import React from 'react'
 import { Clock, Play, Square, Plus, Timer, TrendingUp, Target } from 'lucide-react'
 import { formatHours, formatHoursWithSuffix, formatHoursVariance } from '../../utils/hourFormatter'
-
-interface Task {
-  id: string
-  title: string
-  time_tracking?: {
-    estimated_hours?: number
-    actual_hours: number
-    logged_time?: Array<{
-      id: string
-      user_id: string
-      hours: number
-      description: string
-      date: string
-      created_at: string
-    }>
-  }
-}
+import { Task } from '../../types'
 
 interface TimeTrackingTabProps {
   task: Task
