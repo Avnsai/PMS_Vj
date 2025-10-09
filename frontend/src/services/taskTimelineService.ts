@@ -105,7 +105,7 @@ export class TaskTimelineService {
       summary_task: task.type === 'epic', // Epics are summary tasks
       critical: task.priority === 'critical',
       assignee_ids: task.assignee_id ? [task.assignee_id] : [],
-      milestone: task.type === 'milestone',
+      milestone: (task.type as any) === 'milestone',
       color: this.getTaskColor(task.priority, task.status),
       created_at: task.created_at,
       updated_at: task.updated_at,
