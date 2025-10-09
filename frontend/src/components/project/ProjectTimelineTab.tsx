@@ -4,7 +4,7 @@ import {
   Zap, Target, Activity, AlertTriangle, Wifi, WifiOff, Bell, BellOff,
   Download, Upload, Share2, Filter, Search, Plus, BarChart3,
   Maximize2, Minimize2, RefreshCw, Settings2, GitBranch, Eye,
-  Play, Pause, Square, CheckCircle2, XCircle, AlertCircle2,
+  Play, Pause, Square, CheckCircle2, XCircle, AlertCircle,
   TrendingUp, TrendingDown, Layers, Edit2, Trash2, Link2, ListFilter
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
