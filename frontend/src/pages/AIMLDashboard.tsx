@@ -33,6 +33,8 @@ interface TaskData {
   dependencies?: string[]
   estimatedHours?: number
   requiredSkills?: string[]
+  assigneeExperience?: number
+  [key: string]: any // Allow additional properties
 }
 
 // PerformanceMetrics type - define locally since not exported from service
