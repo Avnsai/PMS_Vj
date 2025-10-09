@@ -24,6 +24,7 @@ export interface PredictionResult {
   modelUsed: string
   processingTime: number
   timestamp: string
+  factors?: Record<string, number>
 }
 
 export interface TrainingData {
