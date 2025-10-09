@@ -3,7 +3,7 @@ import {
   Target, GitBranch, BarChart3, Download, AlertCircle, TrendingUp,
   CheckCircle, Clock, Users, Zap, FileText, Package, Play, 
   Calendar, DollarSign, Activity, Settings, Info, ArrowRight,
-  Save, RefreshCw, Eye, Compare, Archive, XCircle
+  Save, RefreshCw, Eye, Archive, XCircle
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
