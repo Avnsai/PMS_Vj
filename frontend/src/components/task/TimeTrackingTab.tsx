@@ -86,7 +86,7 @@ export const TimeTrackingTab: React.FC<TimeTrackingTabProps> = ({
             </div>
             <div className="text-sm text-gray-600">Logged Time</div>
             <div className="text-xs text-gray-500 mt-1">
-              {task.time_tracking?.logged_time?.length || 0} entries
+              {Array.isArray(task.time_tracking?.logged_time) ? task.time_tracking.logged_time.length : 0} entries
             </div>
           </div>
 
