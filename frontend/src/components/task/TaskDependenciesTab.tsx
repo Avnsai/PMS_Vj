@@ -3,16 +3,7 @@ import {
   Link, ArrowRight, ArrowLeft, Plus, Minus, Search,
   AlertTriangle, CheckCircle, Clock, Target, Network
 } from 'lucide-react'
-
-interface Task {
-  id: string
-  title: string
-  status?: 'todo' | 'in_progress' | 'review' | 'completed' | 'blocked'
-  dependencies: Array<{
-    task_id: string
-    dependency_type: string
-  } | string>
-}
+import { Task } from '../../types'
 
 interface TaskDependenciesTabProps {
   task: Task
