@@ -11,8 +11,10 @@ interface Task {
   status: 'todo' | 'in_progress' | 'review' | 'completed' | 'blocked'
   priority: 'low' | 'medium' | 'high' | 'critical'
   created_at: string
+  updated_at?: string
   due_date: string | null
   assigned_to: string[]
+  assignee_ids?: string[]
   estimated_hours?: number
   actual_hours?: number
 }
