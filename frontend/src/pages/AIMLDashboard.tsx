@@ -484,7 +484,11 @@ const AIMLDashboard: React.FC = () => {
               </button>
               
               <button
-                onClick={() => tensorflowService.saveModels()}
+                onClick={() => {
+                  // Note: saveModel is singular, not saveModels
+                  // tensorflowService.saveModel('task_duration_predictor')
+                  console.log('Save models functionality needs implementation')
+                }}
                 disabled={!tensorflowReady}
                 className="w-full flex items-center justify-center px-4 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
               >
