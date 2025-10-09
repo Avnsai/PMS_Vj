@@ -1055,6 +1055,7 @@ export const EnhancedTaskDetailModal: React.FC<EnhancedTaskDetailModalProps> = (
               statusConfig={statusConfig}
               priorityConfig={priorityConfig}
               typeConfig={typeConfig}
+              setActiveTab={setActiveTab}
             />
           )}
           
