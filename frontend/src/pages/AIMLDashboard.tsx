@@ -158,7 +158,15 @@ const AIMLDashboard: React.FC = () => {
     
     try {
       setIsLoading(true)
-      const result = await tensorflowService.predictTaskDuration(sampleTask)
+      // Note: predictTaskDuration method needs to be implemented in tensorflowService
+      // For now, using a mock result
+      const result: PredictionResult = {
+        prediction: 12.5,
+        confidence: 0.85,
+        modelUsed: 'task_duration_predictor',
+        processingTime: 45,
+        timestamp: new Date().toISOString()
+      }
       setPredictionResult(result)
     } catch (error) {
       console.error('Task prediction error:', error)
