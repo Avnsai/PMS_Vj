@@ -372,7 +372,17 @@ export const TimeTrackingTab: React.FC<TimeTrackingTabProps> = ({
       </div>
 
       {/* Time Analysis & Insights */}
-      {Array.isArray(task.time_tracking?.logged_time) && task.time_tracking.logged_time.length > 3 && (
+      {Array.isArray(task.time_tracking?.logged_time) && task.time_tracking.logged_time.length > 3 && (() => {
+        const loggedEntries = task.time_tracking.logged_time as Array<{
+          id: string
+          user_id: string
+          hours: number
+          description: string
+          date: string
+          created_at: string
+        }>
+        
+        return (
         <div className="bg-white border border-gray-200 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
             <Target className="h-5 w-5 mr-2 text-orange-600" />
@@ -387,19 +397,19 @@ export const TimeTrackingTab: React.FC<TimeTrackingTabProps> = ({
                 <div className="flex justify-between">
                   <span className="text-blue-700">Largest Entry:</span>
                   <span className="font-medium text-blue-900">
-                    {formatHoursWithSuffix(Math.max(...task.time_tracking.logged_time.map(e => e.hours)))}
+                    {formatHoursWithSuffix(Math.max(...loggedEntries.map(e => e.hours)))}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-blue-700">Smallest Entry:</span>
                   <span className="font-medium text-blue-900">
-                    {formatHoursWithSuffix(Math.min(...task.time_tracking.logged_time.map(e => e.hours)))}
+                    {formatHoursWithSuffix(Math.min(...loggedEntries.map(e => e.hours)))}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-blue-700">Most Recent:</span>
                   <span className="font-medium text-blue-900">
-                    {formatHoursWithSuffix(task.time_tracking.logged_time[0]?.hours)}
+                    {formatHoursWithSuffix(loggedEntries[0]?.hours)}
                   </span>
                 </div>
               </div>
@@ -418,8 +428,8 @@ export const TimeTrackingTab: React.FC<TimeTrackingTabProps> = ({
                 <div className="flex justify-between">
                   <span className="text-green-700">Tracking Frequency:</span>
                   <span className="font-medium text-green-900">
-                    {task.time_tracking.logged_time.length > 10 ? 'Excellent' :
-                     task.time_tracking.logged_time.length > 5 ? 'Good' :
+                    {loggedEntries.length > 10 ? 'Excellent' :
+                     loggedEntries.length > 5 ? 'Good' :
                      'Needs Improvement'}
                   </span>
                 </div>
