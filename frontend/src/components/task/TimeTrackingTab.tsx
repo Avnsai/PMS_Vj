@@ -446,7 +446,8 @@ export const TimeTrackingTab: React.FC<TimeTrackingTabProps> = ({
             </div>
           </div>
         </div>
-      )}
+        )
+      })()}
     </div>
   )
 }
