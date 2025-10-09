@@ -1138,6 +1138,7 @@ const TaskOverviewTab: React.FC<{
   statusConfig: any
   priorityConfig: any
   typeConfig: any
+  setActiveTab: (tab: 'overview' | 'details' | 'comments' | 'activity' | 'dependencies' | 'time') => void
 }> = ({ 
   task, 
   taskWithDetails,
@@ -1146,7 +1147,8 @@ const TaskOverviewTab: React.FC<{
   taskHealth,
   statusConfig, 
   priorityConfig,
-  typeConfig
+  typeConfig,
+  setActiveTab
 }) => {
   return (
     <div className="p-6 space-y-6">
