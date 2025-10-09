@@ -639,7 +639,7 @@ const OrganizationPage: React.FC = () => {
           setShowInviteModal(false)
           // Refresh members list
           if (organization) {
-            fetchMembers(organization.id)
+            fetchOrganizationData()
           }
         }}
       />
