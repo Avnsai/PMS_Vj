@@ -71,6 +71,7 @@ interface Comment {
   author_id: string
   parent_id?: string
   thread_id?: string
+  nested_replies?: Comment[]
   mentions: Array<{
     user_id: string
     username: string
