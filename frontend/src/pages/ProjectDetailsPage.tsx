@@ -1213,7 +1213,7 @@ const ActivityTab: React.FC<any> = ({ activities, comments, newComment, setNewCo
             </div>
           </div>
         ) : (
-          Object.entries(groupedActivities).map(([date, dateActivities]) => (
+          Object.entries(groupedActivities).map(([date, dateActivities]: [string, any]) => (
             <div key={date} className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
               {/* Date Header */}
               <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-3 border-b border-gray-200">
@@ -1226,7 +1226,7 @@ const ActivityTab: React.FC<any> = ({ activities, comments, newComment, setNewCo
               
               {/* Activities */}
               <div className="p-6 space-y-4">
-                {dateActivities.map((activity, index) => {
+                {dateActivities.map((activity: any, index: number) => {
                   const Icon = getActivityIcon(activity.type, activity.action_type)
                   const colorClass = getActivityColor(activity.type, activity.action_type)
                   
