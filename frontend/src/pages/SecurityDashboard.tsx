@@ -43,16 +43,14 @@ interface SecurityMetrics {
     }>;
   };
   vulnerability_status?: {
+    security_score: number;
+    vulnerabilities_found: { [key: string]: number };
+    last_scan: string;
     critical: number;
     high: number;
     medium: number;
     low: number;
-    patched_last_30_days?: number;
-    remediation_rate?: number;
-    security_score?: number;
-    remediation_status?: string | { in_progress?: number; pending?: number };
-    vulnerabilities_found?: number;
-    last_scan?: string;
+    remediation_status: { fixed?: number; in_progress?: number; pending?: number };
   };
   security_trends?: {
     events_trend: string;
