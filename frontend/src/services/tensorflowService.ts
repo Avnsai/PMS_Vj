@@ -432,6 +432,7 @@ class TensorFlowService {
       }
       
       // Train model
+      // @ts-expect-error - TensorFlow.js typing inconsistency with verbose parameter
       await model.fit(xs, ys, trainingOptions)
       
       // Clean up tensors
