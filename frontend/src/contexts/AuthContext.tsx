@@ -15,6 +15,13 @@ interface User {
   email_verified: boolean
   avatar_url?: string
   created_at: string
+  phone?: string
+  bio?: string
+  timezone?: string
+  language?: string
+  theme?: string
+  notifications_enabled?: boolean
+  activity_tracking_level?: string
 }
 
 interface AuthTokens {
@@ -22,6 +29,7 @@ interface AuthTokens {
   refresh_token: string
   token_type: string
   expires_in: number
+  user_id?: string
 }
 
 interface LoginData {
