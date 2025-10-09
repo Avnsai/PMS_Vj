@@ -22,7 +22,26 @@ import {
 import GlobalProjectFilter from '../components/common/GlobalProjectFilter'
 import { useProjectFilterContext } from '../contexts/ProjectFilterContext'
 import aiService, { AIModelResponse, ModelComparison } from '../services/aiService'
-import tensorflowService, { PredictionResult, TaskData, PerformanceMetrics } from '../services/tensorflowService'
+import tensorflowService, { PredictionResult } from '../services/tensorflowService'
+
+// TaskData type - define locally since not exported from service
+interface TaskData {
+  title: string
+  description?: string
+  complexity: number
+  priority: string
+  dependencies?: string[]
+  estimatedHours?: number
+}
+
+// PerformanceMetrics type - define locally since not exported from service
+interface PerformanceMetrics {
+  accuracy?: number
+  loss?: number
+  mae?: number
+  rmse?: number
+  epochsCompleted?: number
+}
 import { formatHours, formatHoursWithSuffix } from '../utils/hourFormatter'
 
 interface ModelStatus {
