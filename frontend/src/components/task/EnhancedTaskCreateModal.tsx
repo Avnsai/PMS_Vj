@@ -7,6 +7,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import { useProjectFilterContext } from '../../contexts/ProjectFilterContext'
 import { API_ENDPOINTS } from '../../utils/config'
 import toast from 'react-hot-toast'
+import { Task } from '../../types'
 
 interface TaskFormData {
   title: string
