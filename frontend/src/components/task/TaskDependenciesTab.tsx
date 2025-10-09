@@ -59,7 +59,7 @@ export const TaskDependenciesTab: React.FC<TaskDependenciesTabProps> = ({
     const newDependencies = [...(task.dependencies || []), {
       task_id: selectedTask,
       dependency_type: dependencyType
-    }]
+    }] as Array<{ task_id: string; dependency_type: string }>
     
     onUpdate(task.id, { dependencies: newDependencies })
     setSelectedTask('')
