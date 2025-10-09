@@ -87,7 +87,7 @@ const SettingsPage: React.FC = () => {
         bio: user.bio || '',
         timezone: user.timezone || 'UTC',
         language: user.language || 'en',
-        theme: user.theme || 'light',
+        theme: (user.theme || 'light') as 'light' | 'dark',
         notifications_enabled: user.notifications_enabled ?? true,
         email_notifications: true,
         push_notifications: false
