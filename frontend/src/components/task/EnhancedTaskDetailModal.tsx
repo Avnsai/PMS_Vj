@@ -11,6 +11,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import { getApiUrlDynamic } from '../../utils/config'
 import { formatHours, formatHoursWithSuffix, formatSecondsToHours } from '../../utils/hourFormatter'
 import toast from 'react-hot-toast'
+import { Task as SharedTask } from '../../types'
 
 // Import tab components
 import { TaskDetailsTab } from './TaskDetailsTab'
@@ -19,33 +20,7 @@ import { TaskCommentsTab } from './TaskCommentsTab'
 import { TaskActivityTab } from './TaskActivityTab'
 import { TaskDependenciesTab } from './TaskDependenciesTab'
 
-interface Task {
-  id: string
-  title: string
-  description?: string
-  status: 'todo' | 'in_progress' | 'in_review' | 'blocked' | 'completed' | 'cancelled' | 'review'
-  priority: 'low' | 'medium' | 'high' | 'critical'
-  type: 'task' | 'bug' | 'feature' | 'improvement' | 'research'
-  project_id: string
-  assignee_id?: string
-  assignee_ids?: string[]
-  reporter_id: string
-  parent_task_id?: string
-  due_date?: string
-  start_date?: string
-  completed_at?: string
-  time_tracking: {
-    estimated_hours?: number
-    actual_hours: number
-    logged_time: Array<{
-      id: string
-      user_id: string
-      hours: number
-      description: string
-      date: string
-      created_at: string
-    }>
-  }
+interface Task extends SharedTask {
   dependencies: Array<{
     task_id: string
     dependency_type: string
