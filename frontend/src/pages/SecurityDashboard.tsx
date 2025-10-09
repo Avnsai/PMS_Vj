@@ -23,6 +23,32 @@ interface SecurityMetrics {
     active_threats: number;
     status: string;
   };
+  threat_intelligence?: {
+    active_threats: number;
+    critical_alerts: number;
+    blocked_ips: number;
+    malware_detected: number;
+    indicators?: Array<{
+      type: string;
+      value: string;
+      severity: string;
+      confidence: number;
+      last_seen: string;
+    }>;
+  };
+  vulnerability_status?: {
+    critical: number;
+    high: number;
+    medium: number;
+    low: number;
+    patched_last_30_days?: number;
+    remediation_rate?: number;
+  };
+  security_trends?: {
+    events_trend: string;
+    threat_trend: string;
+    compliance_trend: string;
+  };
   compliance: {
     active_certifications: number;
     status: string;
