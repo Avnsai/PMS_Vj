@@ -1429,7 +1429,7 @@ const TaskOverviewTab: React.FC<{
             {relatedTasks.length > 5 && (
               <div className="text-center pt-2">
                 <button
-                  onClick={() => setActiveTab('dependencies')}
+                  onClick={() => (activeTab as any)}
                   className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
                 >
                   View all {relatedTasks.length} related tasks →
