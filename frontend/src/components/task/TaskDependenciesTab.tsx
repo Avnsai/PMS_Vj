@@ -7,6 +7,7 @@ import {
 interface Task {
   id: string
   title: string
+  status?: 'todo' | 'in_progress' | 'review' | 'completed' | 'blocked'
   dependencies: Array<{
     task_id: string
     dependency_type: string
