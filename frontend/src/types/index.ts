@@ -27,7 +27,7 @@ export interface Task {
   description?: string
   status: 'todo' | 'in_progress' | 'review' | 'completed' | 'blocked' | 'done' | 'cancelled' | 'in_review'
   priority: 'low' | 'medium' | 'high' | 'critical'
-  type?: 'task' | 'bug' | 'feature' | 'epic' | 'story' | 'milestone'
+  type?: 'task' | 'bug' | 'feature' | 'epic' | 'story' | 'milestone' | 'improvement' | 'research'
   project_id: string
   assignee_id?: string
   assignee_ids?: string[]
@@ -45,8 +45,22 @@ export interface Task {
   dependencies?: string[] | Array<{ task_id: string; dependency_type: string }>
   tags?: string[]
   attachments?: string[]
+  subtasks?: string[]
+  labels?: string[]
+  custom_fields?: Record<string, any>
+  progress_percentage?: number
+  subtask_count?: number
+  comment_count?: number
+  attachment_count?: number
   time_tracking?: {
-    logged_time?: number
+    logged_time?: number | Array<{
+      id: string
+      user_id: string
+      hours: number
+      description: string
+      date: string
+      created_at: string
+    }>
     remaining_estimate?: number
     estimated_hours?: number
     actual_hours?: number
