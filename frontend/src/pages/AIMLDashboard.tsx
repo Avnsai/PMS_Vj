@@ -441,7 +441,7 @@ const AIMLDashboard: React.FC = () => {
                   <div className="flex justify-between">
                     <span className="text-blue-700">Predicted Duration:</span>
                     <span className="font-medium text-blue-900">
-                      {formatHours(predictionResult.prediction)} hours
+                      {formatHours(Array.isArray(predictionResult.prediction) ? predictionResult.prediction[0] : predictionResult.prediction)} hours
                     </span>
                   </div>
                   <div className="flex justify-between">
