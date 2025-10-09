@@ -16,7 +16,7 @@ interface Task {
   id: string
   title: string
   description?: string
-  status: 'todo' | 'in_progress' | 'in_review' | 'blocked' | 'completed' | 'cancelled'
+  status: 'todo' | 'in_progress' | 'in_review' | 'blocked' | 'completed' | 'cancelled' | 'review'
   priority: 'low' | 'medium' | 'high' | 'critical'
   type: 'task' | 'bug' | 'feature' | 'improvement' | 'research'
   project_id: string
