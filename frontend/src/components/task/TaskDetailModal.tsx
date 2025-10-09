@@ -1134,7 +1134,7 @@ const TaskDetailsTab: React.FC<TaskDetailsTabProps> = ({
         </div>
 
         {/* Time Entries */}
-        {task.time_tracking.logged_time && task.time_tracking.logged_time.length > 0 && (
+        {Array.isArray(task.time_tracking.logged_time) && task.time_tracking.logged_time.length > 0 && (
           <div className="border-t border-gray-200 pt-4 mt-4">
             <h4 className="font-medium text-gray-900 mb-3">Recent Time Entries</h4>
             <div className="space-y-2">
