@@ -279,53 +279,65 @@ export const TimeTrackingTab: React.FC<TimeTrackingTabProps> = ({
         
         {Array.isArray(task.time_tracking?.logged_time) && task.time_tracking.logged_time.length > 0 ? (
           <div className="space-y-3">
-            {/* Summary Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
-              <div className="text-center">
-                <div className="text-lg font-bold text-gray-900">
-                  {task.time_tracking.logged_time.length}
-                </div>
-                <div className="text-sm text-gray-600">Total Entries</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg font-bold text-gray-900">
-                  {formatHoursWithSuffix(task.time_tracking.logged_time.reduce((sum, entry) => sum + entry.hours, 0))}
-                </div>
-                <div className="text-sm text-gray-600">Total Hours</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg font-bold text-gray-900">
-                  {formatHoursWithSuffix(task.time_tracking.logged_time.reduce((sum, entry) => sum + entry.hours, 0) / task.time_tracking.logged_time.length)}
-                </div>
-                <div className="text-sm text-gray-600">Average Entry</div>
-              </div>
-            </div>
-
-            {/* Entries List */}
-            <div className="max-h-96 overflow-y-auto">
-              {task.time_tracking.logged_time
-                .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
-                .map((entry, index) => (
-                <div key={entry.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border-l-4 border-blue-400">
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                          <Clock className="h-5 w-5 text-blue-600" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-900">
-                            {formatHoursWithSuffix(entry.hours)}
-                          </div>
-                          <div className="text-sm text-gray-600">
-                            {new Date(entry.created_at).toLocaleDateString()} at {new Date(entry.created_at).toLocaleTimeString()}
-                          </div>
-                        </div>
+            {(() => {
+              const loggedEntries = task.time_tracking.logged_time as Array<{
+                id: string
+                user_id: string
+                hours: number
+                description: string
+                date: string
+                created_at: string
+              }>
+              
+              return (
+                <>
+                  {/* Summary Stats */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-gray-900">
+                        {loggedEntries.length}
                       </div>
-                      <div className="text-sm text-gray-500">
-                        Entry #{task.time_tracking.logged_time.length - index}
-                      </div>
+                      <div className="text-sm text-gray-600">Total Entries</div>
                     </div>
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-gray-900">
+                        {formatHoursWithSuffix(loggedEntries.reduce((sum, entry) => sum + entry.hours, 0))}
+                      </div>
+                      <div className="text-sm text-gray-600">Total Hours</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-gray-900">
+                        {formatHoursWithSuffix(loggedEntries.reduce((sum, entry) => sum + entry.hours, 0) / loggedEntries.length)}
+                      </div>
+                      <div className="text-sm text-gray-600">Average Entry</div>
+                    </div>
+                  </div>
+
+                  {/* Entries List */}
+                  <div className="max-h-96 overflow-y-auto">
+                    {loggedEntries
+                      .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+                      .map((entry, index) => (
+                      <div key={entry.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border-l-4 border-blue-400">
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center space-x-3">
+                              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <Clock className="h-5 w-5 text-blue-600" />
+                              </div>
+                              <div>
+                                <div className="font-semibold text-gray-900">
+                                  {formatHoursWithSuffix(entry.hours)}
+                                </div>
+                                <div className="text-sm text-gray-600">
+                                  {new Date(entry.created_at).toLocaleDateString()} at {new Date(entry.created_at).toLocaleTimeString()}
+                                </div>
+                              </div>
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              Entry #{loggedEntries.length - index}
+                            </div>
+                          </div>
                     
                     {entry.description && (
                       <div className="mt-2 p-3 bg-white rounded border">
