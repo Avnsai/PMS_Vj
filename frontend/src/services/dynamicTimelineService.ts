@@ -41,6 +41,9 @@ export interface TaskConflict {
   severity: 'low' | 'medium' | 'high';
   message: string;
   suggested_resolution?: string;
+  affected_tasks?: string[];
+  task_id?: string;
+  related_task_id?: string;
 }
 
 export interface DynamicTaskDependency {
