@@ -318,7 +318,7 @@ class TensorFlowService {
       
       return {
         prediction: finalPrediction,
-        confidence: options.returnConfidence ? this.calculateConfidence(predictionData, config) : 0.8,
+        confidence: options.returnConfidence ? this.calculateConfidence(Array.from(predictionData) as number[], config) : 0.8,
         modelUsed: modelName,
         processingTime: Math.round(processingTime * 100) / 100,
         timestamp: new Date().toISOString()
