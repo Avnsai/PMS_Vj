@@ -715,7 +715,7 @@ const ProjectDetailsPage: React.FC = () => {
         {activeTab === 'team' && (
           <EnhancedTeamTab 
             project={project}
-            users={users}
+            users={users as any}
             onAddMember={() => fetchProjectData()}
             onRemoveMember={() => fetchProjectData()}
             onUpdateMemberRole={() => fetchProjectData()}
