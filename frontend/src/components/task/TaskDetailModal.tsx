@@ -20,6 +20,7 @@ interface Task {
   type: 'task' | 'bug' | 'feature' | 'improvement' | 'research'
   project_id: string
   assignee_id?: string
+  assignee_ids?: string[]
   reporter_id: string
   parent_task_id?: string
   due_date?: string
