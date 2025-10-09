@@ -309,6 +309,7 @@ class TensorFlowService {
       prediction.dispose()
       
       // Postprocess output
+      // @ts-expect-error - Array.from type mismatch with tensor data
       const finalPrediction = this.postprocessOutput(
         Array.from(predictionData), 
         config
