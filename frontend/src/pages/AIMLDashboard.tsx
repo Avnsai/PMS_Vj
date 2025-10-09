@@ -40,6 +40,7 @@ interface PerformanceMetrics {
   loss?: number
   mae?: number
   rmse?: number
+  r2Score?: number
   epochsCompleted?: number
 }
 import { formatHours, formatHoursWithSuffix } from '../utils/hourFormatter'
