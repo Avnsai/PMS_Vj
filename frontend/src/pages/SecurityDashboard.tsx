@@ -32,6 +32,8 @@ interface SecurityMetrics {
     last_threat_detected?: string;
     threats_blocked_today?: number;
     suspicious_ips_detected?: number;
+    malware_attempts_blocked?: number;
+    phishing_attempts_detected?: number;
     indicators?: Array<{
       type: string;
       value: string;
@@ -48,8 +50,9 @@ interface SecurityMetrics {
     patched_last_30_days?: number;
     remediation_rate?: number;
     security_score?: number;
-    remediation_status?: string;
+    remediation_status?: string | { in_progress?: number; pending?: number };
     vulnerabilities_found?: number;
+    last_scan?: string;
   };
   security_trends?: {
     events_trend: string;
@@ -57,6 +60,8 @@ interface SecurityMetrics {
     compliance_trend: string;
     daily_security_events?: number;
     week_over_week_change?: number;
+    average_daily_events?: number;
+    most_active_day?: string;
   };
   compliance: {
     active_certifications: number;
