@@ -289,7 +289,7 @@ const EnhancedTeamTab: React.FC<EnhancedTeamTabProps> = ({
                 <button 
                   onClick={() => {
                     // TODO: Implement role editing functionality
-                    toast.info('Role editing coming soon')
+                    toast('Role editing coming soon', { icon: 'ℹ️' })
                   }}
                   className="w-full px-3 py-2 text-left text-sm hover:bg-gray-50 rounded flex items-center space-x-2"
                 >
