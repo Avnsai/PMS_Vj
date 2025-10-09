@@ -273,11 +273,11 @@ export const TimeTrackingTab: React.FC<TimeTrackingTabProps> = ({
           <TrendingUp className="h-5 w-5 mr-2 text-purple-600" />
           Time Entries History
           <span className="ml-2 text-sm font-normal text-gray-500">
-            ({task.time_tracking?.logged_time?.length || 0} entries)
+            ({Array.isArray(task.time_tracking?.logged_time) ? task.time_tracking.logged_time.length : 0} entries)
           </span>
         </h3>
         
-        {task.time_tracking?.logged_time && task.time_tracking.logged_time.length > 0 ? (
+        {Array.isArray(task.time_tracking?.logged_time) && task.time_tracking.logged_time.length > 0 ? (
           <div className="space-y-3">
             {/* Summary Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
