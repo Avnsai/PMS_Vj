@@ -620,7 +620,7 @@ const GanttChart: React.FC<GanttChartProps> = ({
           <button
             className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
             title="Export chart"
-            onClick={() => toast.info('Export functionality coming soon')}
+            onClick={() => toast('Export functionality coming soon', { icon: 'ℹ️' })}
           >
             <Download className="w-5 h-5" />
           </button>
